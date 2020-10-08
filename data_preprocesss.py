@@ -68,6 +68,7 @@ for region in regions:
         data_search_trend_US.at[ind,'hospitalized_new'] = values
         
     
-
+del data_search_trend_US['sub_region_1_code']
+del data_search_trend_US['Unnamed: 0']
 data_search_trend_US.to_csv('/Users/chengchen/Desktop/merged_dataset.csv')
 
