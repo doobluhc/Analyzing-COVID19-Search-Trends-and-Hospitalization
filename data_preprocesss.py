@@ -39,7 +39,7 @@ data_hospitalization_US = data_hospitalization_US[['open_covid_region_code','reg
 
 
 
-#remove regions that have too many zero entries
+#reset index
 data_hospitalization_US = data_hospitalization_US[(data_hospitalization_US.T != 0).any()].reset_index()
 
 
@@ -70,5 +70,6 @@ for region in regions:
     
 del data_search_trend_US['sub_region_1_code']
 del data_search_trend_US['Unnamed: 0']
+data_search_trend_US = data_search_trend_US.loc[:, (data_search_trend_US != 0).any(axis=0)]
 data_search_trend_US.to_csv('/Users/chengchen/Desktop/merged_dataset.csv')
 
